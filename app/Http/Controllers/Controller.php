@@ -2,12 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
+use App\User;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
-class Controller extends BaseController
+class Users extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function index() {
+    	$users = User::all();
+
+    	return view('user',['users'=>$users]);
+    }
+    
+    public function showUser($id) {
+    	$users = User::where('id', $id)->get();
+    	if (count($users) <= 0) {
+    		return response('No such user (3)', 404);
+    	}else{
+    		return view('user',['users'=>$users]);
+    	}
+    }
 }
