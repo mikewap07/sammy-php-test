@@ -4,15 +4,22 @@ This is my migration project repository as i undertake the exam.
 
 <b>Routes:</b>
 
-Route::get('/users', 'Users@index');
+<b>Route::get('/users', 'Users@index');</b>
 - this has the default execution code for the controller which detects the request type made by the user.
 
-Route::post('/users', 'Users@updateUser');
+<b>Route::post('/users', 'Users@updateUser');</b>
 - this route executes the code for updating the users database's comments field.
 
-Route::get('/users/{id}', 'Users@showUser');
+<b>Route::get('/users/{id}', 'Users@showUser');</b>
 - this contains the function for retrieving the information of a certain user specified by ID number.
 
+<b>Params:</b>
+
+<b>GET</b>
+- Uses field "id" to identify specifically the user's account.
+
+<b>POST</b>
+- Uses field "id", "password" to identify user's account then "comments" to update the database content
 
 
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
